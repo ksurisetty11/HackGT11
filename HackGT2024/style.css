@@ -3,7 +3,7 @@
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); 
-    background-color: #A4DDED; 
+    background-color: #white; 
     border-radius: 15px;
     padding: 10px;
 }
@@ -14,8 +14,9 @@
     margin: 20px 0; 
 }
 .budget-buddy-heading {
-    background-color: #A8E6CF; 
-    color: #2C3E50; 
+    //Not working here
+    background-color: #white; 
+    color: white; 
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -23,21 +24,24 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: fit-content; 
     margin: 20px auto; 
-    border: 2px solid #81D2B0; 
+    border: 2px solid #283555; 
 }
 .profile-image {
     width: 150px; /* Set a specific width for the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Optional: makes the image circular */
-    border: 2px solid #81D2B0; /* Optional: add a border to the image */
+    border: 2px solid #white; /* Optional: add a border to the image */
 }
 .navbar {
     width: 100%;
-    background-color: #A8E6CF; 
+    background-color: #white; 
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #81D2B0; 
+    border-bottom: 3px solid #283555; 
+    border-top: 3px solid #283555;
+    border-right: 3px solid #283555;
+    border-left: 3px solid #283555;
 }
 
 
@@ -56,7 +60,7 @@
 
 .navbar a {
     text-decoration: none;
-    color: #2C3E50; 
+    color: white; 
     font-size: 20px;
     font-family: 'Courier New', Courier, cursive;
     padding: 10px 20px;
@@ -67,17 +71,17 @@
 
 
 .navbar a:hover {
-    background-color: #81D2B0; 
-    color: white; 
-    border-color: white;
+    background-color: #rgb(231, 224, 184);; 
+    color: #283555; 
+    border-color: #283555;
 }
 
 /* Left side styling */
 .left {
     flex: 1;
     padding: 30px;
-    background-color: #FFFFFF; 
-    border-right: 3px solid #A8E6CF; 
+    background-color: rgb(231, 224, 184);
+    border-right: 3px solid #283555; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
@@ -86,9 +90,9 @@
 .right {
     flex: 1;
     padding: 30px;
-    background-color: #F0F4F8; 
+    background-color: rgb(231, 224, 184); 
     text-align: right;
-    border-left: 3px solid #A8E6CF; 
+    border-left: 3px solid #283555; 
     transition: background-color 0.3s ease;
 }
 
@@ -113,8 +117,8 @@ main h3, main h4, h4 {
     justify-content: center;
     align-items: center;
     height: 100vh; 
-    background-color: #A4DDED; 
-    border: 3px solid #A8E6CF;  
+    background-color: #2C3E50; 
+    border: 3px solid #6c7ba0;  
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -131,6 +135,6 @@ a {
 
 /* Hover effect for all links */
 a:hover {
-    color: #A8E6CF; 
+    color: #97acdc; 
     text-decoration: underline;
 }
