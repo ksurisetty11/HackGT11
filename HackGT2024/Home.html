@@ -6,6 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Buddy - Home</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
+    <style>
+        .right {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            text-align: left;
+        }
+
+        .custom-heading {
+            font-size: 1.0em;
+            margin-bottom: 5px;
+            margin-top: 0;
+            padding: 0;
+        }
+
+        label,
+        #categorySelect,
+        #updateValue,
+        #updateValue2,
+        #submitButton,
+        #submitButton2 {
+            display: block;
+            margin-top: 2px;
+            margin-bottom:2px;
+        }
+
+        #categorySelect {
+            color: rgb(95, 95, 95);
+        }
+
+        #categorySelect option {
+            color: black;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,22 +74,31 @@
                 
                 <section>
                     <h3>Spending</h3>
+                    <p>Miscellaneous: <span id="miscellaneous">0.00</span></p>
                     <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
                     <p>Food: <span id="foodDisplay">0.00</span></p>
                     <p>Transportation: <span id="transportationDisplay">0.00</span></p>
                 </section>
-                <section>
-                    <label for="categorySelect">Choose a category:</label>
+
+                <section class="expenses-deposits">
+                    <h3 class="custom-heading"><b>Expenses</b></h3>
                     <select id="categorySelect">
+                        <option value="" disabled selected style="color: gray;">Category</option>
                         <option value="miscellaneous">Miscellaneous</option>
                         <option value="rentAndUtilities">Rent and Utilities</option>
                         <option value="food">Food</option>
                         <option value="transportation">Transportation</option>
                     </select>
             
-                    <input type="number" id="updateValue" placeholder="Enter new value" step="0.01">
+                    <input type="number" id="updateValue" placeholder="Enter new value" step="0.01" style="margin-top: 5px;">
                     
-                    <button id="submitButton">Submit</button>
+                    <button id="submitButton" style="margin-top: 5px;">Submit</button>
+                </section>
+                <section>
+                    <h3> </h3>
+                    <h3 class="custom-heading"><b>Deposits</b></h3>      
+                    <input type="number" id="updateValue2" placeholder="Enter new value" step="0.01" style="margin-top: 5px;">
+                    <button id="submitButton2" style="margin-top: 5px;">Submit</button>
                 </section>
                 
             </main>
