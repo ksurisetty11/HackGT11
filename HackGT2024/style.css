@@ -1,6 +1,6 @@
 /* Container that holds the two sides */
 body {
-    background: white; /* White background for the body */
+    background: rgb(176, 231, 234); /* White background for the body */
     margin: 0;
     overflow-x: hidden;
     color: #001f3f; /* Dark blue font color */
@@ -10,7 +10,7 @@ body {
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); 
-    background-color: white; /* White background */
+    background-color: rgb(176, 231, 234); /* White background */
     border-radius: 15px;
     padding: 10px;
 }
@@ -88,7 +88,7 @@ body {
     flex: 1;
     padding: 30px;
     background-color: white; /* White background */
-    border-right: 3px solid #001f3f; /* Dark blue border */
+    border-right: 3px solid rgb(176, 231, 234); /* Dark blue border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Change shadow color */
     transition: background-color 0.3s ease;
 }
@@ -99,7 +99,7 @@ body {
     padding: 30px;
     background-color: white; /* White background */
     text-align: right;
-    border-left: 3px solid #001f3f; /* Dark blue border */
+    border-left: 3px solid rgb(176, 231, 234); /* Dark blue border */
     transition: background-color 0.3s ease;
 }
 
@@ -127,11 +127,6 @@ main h3, main h4 {
     background-color: white; /* White background */
     border: 3px solid #001f3f; /* Dark blue border */
     transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for the image container */
-.image-container:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Change shadow color */
 }
 
 /* Global link styling */

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
     <style>
         body{
-            background: white;
+            background: rgb(176, 231, 234);
             margin: 0;
             overflow-x: hidden;
             color: black;
@@ -121,7 +121,7 @@
                 
                 <section>
                     <h3>Spending</h3>
-                    <p>Miscellaneous: <span id="miscellaneous">0.00</span></p>
+                    <p>Miscellaneous: <span id="miscellaneousDisplay">0.00</span></p>
                     <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
                     <p>Food: <span id="foodDisplay">0.00</span></p>
                     <p>Transportation: <span id="transportationDisplay">0.00</span></p>
@@ -168,7 +168,7 @@
             savings: parseFloat(localStorage.getItem('savings')) || 0
         };
 
-        document.getElementById('miscellaneous').innerText = spendingCategories.miscellaneous.toFixed(2);
+        document.getElementById('miscellaneousDisplay').innerText = spendingCategories.miscellaneous.toFixed(2);
         document.getElementById('rentAndUtilitiesDisplay').innerText = spendingCategories.rentAndUtilities.toFixed(2);
         document.getElementById('foodDisplay').innerText = spendingCategories.food.toFixed(2);
         document.getElementById('transportationDisplay').innerText = spendingCategories.transportation.toFixed(2);
