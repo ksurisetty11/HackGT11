@@ -125,7 +125,7 @@
                     <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
                     <p>Food: <span id="foodDisplay">0.00</span></p>
                     <p>Transportation: <span id="transportationDisplay">0.00</span></p>
-                    <p>Miscellaneous: <span id="miscellaneousDisplay">0.00</span></p>
+                    <p>Savings: <span id="savings">0.00</span></p>
                 </section>
 
                 <section class="expenses-deposits">
@@ -136,6 +136,7 @@
                         <option value="rentAndUtilities">Rent and Utilities</option>
                         <option value="food">Food</option>
                         <option value="transportation">Transportation</option>
+                        <option value="savings">Savings</option>
                     </select>
 
                     <input type="number" id="updateValue" placeholder="Enter new value" step="1.00" style="margin-top: 5px;">    
@@ -163,13 +164,15 @@
             miscellaneous: parseFloat(localStorage.getItem('miscellaneous')) || 0,
             rentAndUtilities: parseFloat(localStorage.getItem('rentAndUtilities')) || 0,
             food: parseFloat(localStorage.getItem('food')) || 0,
-            transportation: parseFloat(localStorage.getItem('transportation')) || 0
+            transportation: parseFloat(localStorage.getItem('transportation')) || 0,
+            savings: parseFloat(localStorage.getItem('savings')) || 0
         };
 
         document.getElementById('miscellaneous').innerText = spendingCategories.miscellaneous.toFixed(2);
         document.getElementById('rentAndUtilitiesDisplay').innerText = spendingCategories.rentAndUtilities.toFixed(2);
         document.getElementById('foodDisplay').innerText = spendingCategories.food.toFixed(2);
         document.getElementById('transportationDisplay').innerText = spendingCategories.transportation.toFixed(2);
+        document.getElementById('savings').innerText = spendingCategories.savings.toFixed(2);
 
         let currentBalance = parseFloat(localStorage.getItem('currentBalance')) || 0;
     
