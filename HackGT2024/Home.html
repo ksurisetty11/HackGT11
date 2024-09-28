@@ -11,7 +11,7 @@
             background: white;
             margin: 0;
             overflow-x: hidden;
-            color: white
+            color: black;
         }
 
         .container {
@@ -117,7 +117,7 @@
         <div class="right">
             <main>
                 <h3>Welcome to Budget Buddy!</h3>
-                <p>Innovative financial tracker, where smart financing meets engaging gamification </p>
+                <p style="font-family: Nunito">Innovative financial tracker, where smart financing meets engaging gamification </p>
                 
                 <section>
                     <h3>Spending</h3>
@@ -125,7 +125,7 @@
                     <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
                     <p>Food: <span id="foodDisplay">0.00</span></p>
                     <p>Transportation: <span id="transportationDisplay">0.00</span></p>
-                    <p>Savings: <span id="savings">0.00</span></p>
+                    <p>Savings: <span id="savingsDisplay">0.00</span></p>
                 </section>
 
                 <section class="expenses-deposits">
@@ -172,7 +172,7 @@
         document.getElementById('rentAndUtilitiesDisplay').innerText = spendingCategories.rentAndUtilities.toFixed(2);
         document.getElementById('foodDisplay').innerText = spendingCategories.food.toFixed(2);
         document.getElementById('transportationDisplay').innerText = spendingCategories.transportation.toFixed(2);
-        document.getElementById('savings').innerText = spendingCategories.savings.toFixed(2);
+        document.getElementById('savingsDisplay').innerText = spendingCategories.savings.toFixed(2);
 
         let currentBalance = parseFloat(localStorage.getItem('currentBalance')) || 0;
     
