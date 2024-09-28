@@ -21,7 +21,7 @@
         #duckBody {
             width: 200px;
             height: 200px;
-            background-color: yellow;
+            background-color: rgb(244, 225, 23);
             border-radius: 50%;
             margin-top: 100px;
         }
@@ -29,10 +29,62 @@
         #duckHead {
             width: 140px;
             height: 140px;
-            background-color: yellow;
+            background-color: rgb(244, 225, 23);
             border-radius: 50%;
             margin-top: -140px;
             margin-left: -170px;
+        }
+
+        #duckLeftEye {
+            width: 35px;
+            height: 35px;
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+            margin-top: -160px;
+            margin-left: -25px;
+        }
+
+        #duckRightEye {
+            width: 35px;
+            height: 35px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            margin-top: -160px;
+            margin-left: 85px;
+        }
+
+        #duckLeftPupil {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            margin-top: -170px;
+            margin-left: 100px;
+        }
+
+        #duckRightPupil {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            margin-top: -170px;
+            margin-left: -10px;
+        }
+
+        #beak {
+            position: absolute;
+            top: 305px;
+            left: 365px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent; 
+            border-bottom: 40px solid orange;
+            transform: rotate(180deg);
         }
 
     </style>
@@ -42,6 +94,11 @@
     <!-- Adding the yellow circle for the head -->
     <div id="duckBody"></div>
     <div id="duckHead"></div>
+    <div id="duckLeftEye"></div>
+    <div id="duckRightEye"></div>
+    <div id="duckLeftPupil"></div>
+    <div id="duckRightPupil"></div>
+    <div id="beak"></div>
 </body>
 
 </html>
