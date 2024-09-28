@@ -107,7 +107,7 @@ h1 {
 }
 
 /* Subheading styling */
-main h3, main h4, h4 {
+main h3, main h4{
     font-family: 'Courier New', Courier, cursive;
     color: #2C3E50;
 }
