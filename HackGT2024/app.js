@@ -48,6 +48,29 @@ let categories = {
 savingsGoal = 100;
 savingsActual = 15;
 
+// Function to update the selected category
+function updateCategory() {
+
+    // Get the selected category and the entered value
+    const selectedCategory = document.getElementById("categorySelect").value;
+    const userInput = parseFloat(document.getElementById("updateValue").value);
+
+    // Check if the input value is a valid number
+    if (!isNaN(userInput)) {
+        // Update the selected category's variable
+        categories[selectedCategory] += userInput;
+
+        // Update the display for the selected category
+        document.getElementById(`${selectedCategory}Display`).innerText = newValue.toFixed(2);
+
+        // Clear the input field
+        document.getElementById("updateValue").value = '';
+    
+    } else {
+        alert("Please enter a valid number.");
+    }
+}
+
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
 
