@@ -6,11 +6,15 @@ main{
     margin-left: 20px;
 }
 h1{
+    background-color: hsl(204, 72%, 24%);
+    opacity: 0.8;
+    color: rgb(240, 233, 233); 
     text-align: center; 
 }
 .navbar ul{
     list-style-type: none;
     background-color: hsl(204, 72%, 24%);
+    opacity: 0.8;
     padding: 0px;
     margin: 0px;
     overflow: hidden;
@@ -19,7 +23,8 @@ h1{
     align-items: center;
 }
 .navbar a{
-    color: rgb(12, 2, 2); 
+    color: rgb(240, 233, 233); 
+    font-family: "Didot", "serif";
     text-decoration: none;
     padding: 15px;
     display: block;
