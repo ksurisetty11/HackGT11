@@ -25,8 +25,12 @@
     margin: 20px auto; 
     border: 2px solid #81D2B0; 
 }
-
-
+.profile-image {
+    width: 150px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: makes the image circular */
+    border: 2px solid #81D2B0; /* Optional: add a border to the image */
+}
 .navbar {
     width: 100%;
     background-color: #A8E6CF; 
@@ -98,7 +102,7 @@ h1 {
 }
 
 /* Subheading styling */
-main h3, main h4 {
+main h3, main h4, h4 {
     font-family: 'Courier New', Courier, cursive;
     color: #2C3E50;
 }
