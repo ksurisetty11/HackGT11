@@ -1,33 +1,30 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+body{
+    margin: 0px;
 }
-
-header {
-    background-color: #b55959;
+main{
+    margin-left: 20px;
+    margin-left: 20px;
 }
-
-.menu-bar {
+h1{
+    text-align: center; 
+}
+.navbar ul{
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Center the menu */
-    background-color: #333;
+    background-color: hsl(204, 72%, 24%);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
 }
-
-.menu-bar li {
-    display: inline; /* Display items in a row */
-}
-
-.menu-bar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
+.navbar a{
+    color: rgb(243, 231, 231); 
     text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center; 
 }
-
-.menu-bar li a:hover {
-    background-color: #ad4343;
+.navbar a:hover{
+    background-color: hsl(211, 35%, 66%); 
+}
+.navbar li{
+    float: left; 
 }
