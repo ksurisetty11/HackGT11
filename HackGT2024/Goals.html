@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Budget Buddy - Goals</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
 </head>
 <body>
 
-    <h1>Budget Tracker</h1>
-    <div id="no-margin-section">
+    <h1>Budget Buddy</h1>
 
+    <!-- Navbar that spans the full width -->
     <nav class="navbar">
         <ul>
             <li><a href="home.html">Home</a></li>
@@ -20,15 +20,55 @@
             <li><a href="profile.html">Profile</a></li>
         </ul>
     </nav>
+
+    <!-- Container for the content -->
+    <div class="container">
+        <!-- Left section (optional for this page) -->
+        <div class="left">
+            <main>
+                <h3>Goal-Setting: Expense Goals</h3>
+                <p>Let's set our expense goals! For each category, enter your goal amount.</p>
+                <section>
+                    <form>
+                        <label for="inputValue1">Enter your desired maximum spendings on rent and utilities: </label>
+                        <input type="text" id="inputValue1" name="inputValue1">
+                        <br>
+                        <label for="inputValue2">Enter your desired maximum spendings on food and groceries: </label>
+                        <input type="text" id="inputValue2" name="inputValue2">
+                        <br>
+                        <label for="inputValue3">Enter your desired maximum spendings on transportation: </label>
+                        <input type="text" id="inputValue3" name="inputValue3">
+                        <br>
+                        <label for="inputValue4">Enter your desired maximum spendings on miscellaneous: </label>
+                        <input type="text" id="inputValue4" name="inputValue4">
+                        <br>
+                        <label for="inputValue5">Enter your desired minimum savings: </label>
+                        <input type="text" id="inputValue5" name="inputValue5">
+                        <button onclick="assignInputs();">Submit</button>
+                        <br>
+                    </form>
+                    <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
+                </section>
+            </main>
+        </div>
+
+        <!-- Right section -->
+        <div class="right">
+            <section> <!-- Empty or an image can be added here -->
+                <h3>Goal-Setting: Savings Goals</h3>
+                <p>Set your savings goal to achieve financial success! Entire your goal amount below.</p>
+            </section>
+        </div>
     </div>
+
     <script>
         function assignInputs() {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
-            const inputValue1 = document.getElementById('userInput1').value;
-            const inputValue2 = document.getElementById('userInput2').value;
-            const inputValue3 = document.getElementById('userInput3').value;
-            const inputValue4 = document.getElementById('userInput4').value;
-            const inputValue5 = document.getElementById('userInput5').value;
+            const inputValue1 = document.getElementById('inputValue1').value;
+            const inputValue2 = document.getElementById('inputValue2').value;
+            const inputValue3 = document.getElementById('inputValue3').value;
+            const inputValue4 = document.getElementById('inputValue4').value;
+            const inputValue5 = document.getElementById('inputValue5').value;
             
             // Assign the values to the preexisting variables
             rentAndUtilities = inputValue1;
@@ -37,39 +77,9 @@
             miscellaneous = inputValue4;
             savings = inputValue5;
 
-            // Tell the user they updated their values!
-            console.log("Your goals have been updated!")
+            // Confirmation message
+            document.getElementById('confirmationMessage').innerText = "Your goals have been updated!";
         }
     </script>
-    <main>
-        <h3>Goal-Setting</h3>
-        <p>Let's set our budget and savings goals! For each category, enter your goal amount.</p>
-    </section>       
-    <section>
-        <h4>Budget Goals</h4>
-        <form>
-            <label for="inputValue1">Enter your desired maximum spendings on rent and utilities: </label>
-            <input type="text" id="inputValue1" name="inputValue1">
-            <br>
-            <label for="inputValue2">Enter your desired maximum spendings on food and groceries: </label>
-            <input type="text" id="inputValue2" name="inputValue2">
-            <br>
-            <label for="inputValue3">Enter your desired maximum spendings on transportation: </label>
-            <input type="text" id="inputValue3" name="inputValue3">
-            <br>
-            <label for="inputValue4">Enter your desired maximum spendings on miscellaneous: </label>
-            <input type="text" id="inputValue4" name="inputValue4">
-            <br>
-            <label for="inputValue5">Enter your desired minimum savings: </label>
-            <input type="text" id="inputValue5" name="inputValue5">
-            <button onclick= "assignInputs()">Submit</button>
-            <br>
-        </form>
-    </section>
-    <footer>
-        <!-- insert a footer -->
-    </footer>
-    <script src="app.js"></script>
-</main>
 </body>
 </html>

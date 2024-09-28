@@ -4,58 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Buddy</title>
-    <style>
-        /* Style for the container that holds the two sides */
-        .container {
-            display: flex;
-            width: 100%;
-            height: calc(100vh - 60px); /* Full height minus the height of the navbar */
-        }
-
-        /* Navbar styling */
-        .navbar {
-            width: 100%;
-            background-color: #333; /* Dark background for contrast */
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        /* Navbar list styling */
-        .navbar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center; /* Center align the navbar items */
-        }
-
-        .navbar li {
-            margin: 0 15px;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Left side styling */
-        .left {
-            flex: 1;
-            padding: 20px;
-            background-color: #f4f4f4; /* Light background for left side */
-        }
-
-        /* Right side styling */
-        .right {
-            flex: 1;
-            padding: 20px;
-            background-color: #e0e0e0; /* Light background for right side */
-            text-align: right; /* Align text to the right */
-        }
-    </style>
+    <title>Budget Buddy - Home</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
 </head>
 <body>
 
@@ -79,16 +29,18 @@
                 <img id="DuckAvatar" src="images/HappyDuck.svg" alt="Duck Avatar">
             </section>
         </div>
-    
 
         <!-- Right section -->
         <div class="right">
             <main>
                 <h3>This is the Home page</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minus eveniet recusandae dicta similique numquam voluptas quos tempore cupiditate pariatur, laudantium fugit alias quia veritatis nesciunt quaerat molestias adipisci assumenda.</p>
+                
                 <section>
-                    <h3>Categories</h3>
-            
+                    <h3>Spending</h3>
+                    <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
+                    <p>Food: <span id="foodDisplay">0.00</span></p>
+                    <p>Transportation: <span id="transportationDisplay">0.00</span></p>
                 </section>
                 <section>
                     <label for="categorySelect">Choose a category:</label>
@@ -99,13 +51,14 @@
                         <option value="transportation">Transportation</option>
                     </select>
             
-                    <input type="number" id="updateValue" placeholder="Enter new value">
-            
-                    <button onclick="updateCategory()">Submit</button>
-            
+                    <input type="number" id="updateValue" placeholder="Enter new value" step="0.01">
+                    
+                    <button id="submitButton">Submit</button>
                 </section>
+                
             </main>
         </div>
     </div>
 
-
+</body>
+</html>

@@ -1,38 +1,58 @@
-body{
-    margin: 0px;
-}
-main{
-    margin-left: 20px;
-    margin-left: 20px;
-}
-h1{
-    background-color: hsl(204, 72%, 24%);
-    opacity: 0.8;
-    color: rgb(240, 233, 233); 
-    text-align: center; 
-}
-.navbar ul{
-    list-style-type: none;
-    background-color: hsl(204, 72%, 24%);
-    opacity: 0.8;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
+/* Style for the container that holds the two sides */
+.container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 100%;
+    height: calc(100vh - 60px); /* Full height minus the height of the navbar */
 }
-.navbar a{
-    color: rgb(240, 233, 233); 
-    font-family: "Didot", "serif";
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: #333; /* Dark background for contrast */
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Navbar list styling */
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center align the navbar items */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
     text-decoration: none;
-    padding: 15px;
-    display: block;
-    text-align: center; 
+    color: white;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
 }
-.navbar a:hover{
-    background-color: hsl(211, 33%, 43%); 
+
+/* Left side styling */
+.left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light background for left side */
 }
-.navbar li{
-    float: left; 
+
+/* Right side styling */
+.right {
+    flex: 1;
+    padding: 20px;
+    background-color: #e0e0e0; /* Light background for right side */
+    text-align: right; /* Align text to the right */
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+main h3, main h4 {
+    font-family: Arial, sans-serif;
 }
