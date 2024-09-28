@@ -3,13 +3,13 @@
 // JavaScript to handle button clicks and update the balance
  let balance = parseFloat(localStorage.getItem('balance')) || 0.00;
 
- let categories = {
-    rentAndUtilities: 0.00,
-    food: 0.00,
-    transportation: 0.00,
-    savings: 0.00,
-    miscellaneous: 0.00
-}
+ //categories
+let rentAndUtilities = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+let food = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+let transportation = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+let savings = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+let miscellaneous = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+
 
  // Set the initial balance to display as $0.00
  document.addEventListener("DOMContentLoaded", function() {
@@ -59,15 +59,38 @@ function updateDisplay() {
 
 document.getElementById("submitButton").addEventListener("click", function() {
     // Get the selected category and the value to update
-    const selectedCategory = document.getElementById("categorySelect").value;
-    const userInput = parseFloat(document.getElementById("updateValue").value);
-
-    categories[selectedCategory] += userInput;
-    // Update the display
+    updateCategoryValue(document.getElementById("categorySelect").value, document.getElementById("updateValue").value);
     updateDisplay();
-
-    document.getElementById("updateValue").value = 0.0;
 });
+
+function updateCategoryValue(category, value) {
+    // Check if userInput is a valid number
+
+    if (!isNaN(value)) {
+        // Update the balance based on whether we are adding or subtracting
+        if (category == rentAndUtilities) {
+            document.getElementById("rentAndUtilitiesDisplay").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
+            rentAndUtilities += value;
+            localStorage.setItem('rentAndUtilities', rentAndUtilities);
+        } else if (category == food) {
+            document.getElementById("foodDisplay").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
+            food += value;
+            localStorage.setItem('food', food);
+        } else if (category == transportation) {
+            document.getElementById("transportationDisplay").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
+            transportation += value;
+            localStorage.setItem('transportation', balance);
+        } else if (category == miscellaneous) {
+            document.getElementById("miscellaneousDisplay").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
+            miscellaneous += value;
+            localStorage.setItem('miscellaneous', miscellaneous);
+        }
+        // Clear the input box after updating
+        document.getElementById("updateValue").value = '';
+    } else {
+        alert("Please enter a valid number");
+    }
+}
 
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
