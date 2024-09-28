@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head></head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Tracker</title>
+    <title>Budget Buddy</title>
     <link rel="stylesheet" href="style.css">
-</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Update Balance</title>
     <style>
         body {
@@ -53,8 +50,42 @@
     </style>
 </head>
 
-<body></body>
-    <h1>Budget Buddy</h1>
+<body>
+    <style>
+        body{
+            margin: 0px;
+        }
+        main{
+            margin-left: 20px;
+            margin-left: 20px;
+        }      
+        h1{
+            text-align: center; 
+        }
+        .navbar ul{
+            list-style-type: none;
+            background-color: hsl(204, 72%, 24%);
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .navbar a{
+            color: rgb(12, 2, 2); 
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            text-align: center; 
+        }
+        .navbar a:hover{
+            background-color: hsl(211, 33%, 43%); 
+        }   
+        .navbar li{
+            float: left; 
+        }
+    </style>
 
     <nav class="navbar">
         <ul>
@@ -90,42 +121,7 @@
         </div>
     </div>
 
-    <script>
-        // JavaScript to handle button clicks and update the balance
-        let balance = 0.00;
-
-        // Set the initial balance to display as $0.00
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
-        });
-
-        // Function to update the balance based on user input
-        function updateBalance(inputId, isAdding) {
-            // Get the value from the specified input box
-            const userInput = parseFloat(document.getElementById(inputId).value);
-            
-            // Check if userInput is a valid number
-            if (!isNaN(userInput) && userInput !== null && userInput !== undefined) {
-                // Update the balance based on whether we are adding or subtracting
-                balance += isAdding ? userInput : -userInput;
-                document.getElementById("value").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
-                
-                // Clear the input box after updating
-                document.getElementById(inputId).value = '';
-            } else {
-                alert("Please enter a valid number");
-            }
-        }
-
-        // Event listeners for the add and subtract buttons
-        document.getElementById("addButton").addEventListener("click", function () {
-            updateBalance("userInput1", true); // Add value from first input
-        });
-
-        document.getElementById("subtractButton").addEventListener("click", function () {
-            updateBalance("userInput2", false); // Subtract value from second input
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
