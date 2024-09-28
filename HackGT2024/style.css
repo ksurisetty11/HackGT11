@@ -1,4 +1,8 @@
 /* Container that holds the two sides */
+body {
+    color: white;
+}
+
 .container {
     display: flex;
     width: 100%;
