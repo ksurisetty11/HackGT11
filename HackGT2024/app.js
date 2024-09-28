@@ -62,6 +62,7 @@ document.getElementById("submitButton").addEventListener("click", function() {
 });
 
 function updateCategoryValue(category, value) {
+
     if (!isNaN(parseFloat(value))) {
         value = parseFloat(value);
         if (category == "rentAndUtilities") {
@@ -96,3 +97,4 @@ if (savingsActual / savingsGoal > .75) {
 } else {
     duckAvatar.src = 'images/sadDuck.svg';
 }
+    
