@@ -38,7 +38,7 @@
             savings = inputValue5;
 
             // Tell the user they updated their values!
-            console.log("Your goals have been updated!")
+            document.getElementById('confirmationMessage').innerText = "Your goals have been updated!";
         }
     </script>
     <main>
@@ -62,9 +62,10 @@
             <br>
             <label for="inputValue5">Enter your desired minimum savings: </label>
             <input type="text" id="inputValue5" name="inputValue5">
-            <button onclick= "assignInputs()">Submit</button>
+            <button onclick= "assignInputs();" >Submit</button>
             <br>
         </form>
+        <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
     </section>
     <footer>
         <!-- insert a footer -->
