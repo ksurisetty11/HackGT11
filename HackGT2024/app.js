@@ -7,8 +7,9 @@ let balance = parseFloat(localStorage.getItem('balance')) || 0.00;
 let rentAndUtilities = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
 let food = parseFloat(localStorage.getItem('food')) || 0.00;
 let transportation = parseFloat(localStorage.getItem('transportation')) || 0.00;
-let savings = parseFloat(localStorage.getItem('savings')) || 0.00;
+let savingsGoal = parseFloat(localStorage.getItem('savingsGoal')) || 0.00;
 let miscellaneous = parseFloat(localStorage.getItem('miscellaneous')) || 0.00;
+let savings = parseFloat(localStorage.getItem('savings')) || 0.00;
 
 
  // Set the initial balance to display as $0.00
@@ -43,10 +44,6 @@ let miscellaneous = parseFloat(localStorage.getItem('miscellaneous')) || 0.00;
  document.getElementById("subtractButton").addEventListener("click", function () {
      updateBalance("userInput2", false); // Subtract value from second input
  });
-
-//hardcoding for testing
-savingsGoal = 100;
-savingsActual = 15;
 
         // Function to update the displayed values
 function updateDisplay() {
@@ -88,11 +85,11 @@ function updateCategoryValue(category, value) {
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
 
-if (savingsActual / savingsGoal > .75) {
+if (balance / savings > .75) {
     duckAvatar.src = 'images/veryHappyDuck.svg';
-} else if (savingsActual / savingsGoal > .5) {
+} else if (balance / savings > .5) {
     duckAvatar.src = 'images/happyDuck.svg';
-} else if (savingsActual / savingsGoal > .3) {
+} else if (balance / savings > .3) {
     duckAvatar.src = 'images/concernedDuck.svg';
 } else {
     duckAvatar.src = 'images/sadDuck.svg';
