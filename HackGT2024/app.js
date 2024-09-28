@@ -96,3 +96,4 @@ if (savingsActual / savingsGoal > .75) {
 } else {
     duckAvatar.src = 'images/sadDuck.svg';
 }
+    
