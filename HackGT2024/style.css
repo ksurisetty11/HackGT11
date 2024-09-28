@@ -3,19 +3,21 @@
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); 
-    background-color: #white; 
+    background-color: white; 
     border-radius: 15px;
     padding: 10px;
 }
+
 .budget-buddy-container {
     display: flex; 
     justify-content: center; 
     align-items: center; 
     margin: 20px 0; 
 }
+
 .budget-buddy-heading {
-    //Not working here
-    background-color: #white; 
+    /* Removed the comment syntax, replaced with /* comment */
+    background-color: white;
     color: white; 
     padding: 20px;
     border-radius: 10px;
@@ -26,15 +28,17 @@
     margin: 20px auto; 
     border: 2px solid #283555; 
 }
+
 .profile-image {
     width: 150px; /* Set a specific width for the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Optional: makes the image circular */
-    border: 2px solid #white; /* Optional: add a border to the image */
+    border: 2px solid white; /* Optional: add a border to the image */
 }
+
 .navbar {
     width: 100%;
-    background-color: #white; 
+    background-color: white; /* Fixed syntax for white color */
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,7 +47,6 @@
     border-right: 3px solid #283555;
     border-left: 3px solid #283555;
 }
-
 
 .navbar ul {
     list-style-type: none;
@@ -57,7 +60,6 @@
     margin: 0 20px;
 }
 
-
 .navbar a {
     text-decoration: none;
     color: white; 
@@ -69,9 +71,8 @@
     transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease;
 }
 
-
 .navbar a:hover {
-    background-color: #rgb(231, 224, 184);; 
+    background-color: rgb(231, 224, 184); /* Fixed rgb syntax */
     color: #283555; 
     border-color: #283555;
 }
