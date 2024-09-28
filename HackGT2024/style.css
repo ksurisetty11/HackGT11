@@ -14,6 +14,9 @@ h1{
     padding: 0px;
     margin: 0px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .navbar a{
     color: rgb(243, 231, 231); 
@@ -23,7 +26,7 @@ h1{
     text-align: center; 
 }
 .navbar a:hover{
-    background-color: hsl(211, 35%, 66%); 
+    background-color: hsl(211, 33%, 43%); 
 }
 .navbar li{
     float: left; 
