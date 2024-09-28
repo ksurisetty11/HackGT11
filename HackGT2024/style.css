@@ -8,7 +8,7 @@
 /* Navbar styling */
 .navbar {
     width: 100%;
-    background-color: #333; /* Dark background for contrast */
+    background-color: #272b5b; /* Dark background for contrast */
     padding: 10px 0;
     text-align: center;
 }
@@ -30,7 +30,7 @@
     text-decoration: none;
     color: white;
     font-size: 18px;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, cursive;
 }
 
 /* Left side styling */
@@ -50,9 +50,9 @@
 
 h1 {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, cursive;
 }
 
 main h3, main h4 {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, cursive;
 }
