@@ -1,72 +1,58 @@
-/* Global Styles */
-body {
-    margin: 0px;
-}
-
-/* Main section margin adjustment */
-main {
-    margin-left: 20px;
-}
-
-/* Header Styles */
-h1 {
-    background-color: hsl(204, 72%, 24%);
-    opacity: 0.8;
-    color: rgb(240, 233, 233);
-    text-align: center;
-}
-
-/* Navbar Styling */
-.navbar ul {
-    list-style-type: none;
-    background-color: hsl(204, 72%, 24%);
-    opacity: 0.8;
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-/* Navbar link styling */
-.navbar a {
-    color: rgb(240, 233, 233);
-    font-family: "Didot", "serif";
-    text-decoration: none;
-    padding: 15px;
-    display: block;
-    text-align: center;
-}
-
-/* Hover effect for navbar links */
-.navbar a:hover {
-    background-color: hsl(211, 33%, 43%);
-}
-
-/* Navbar list item */
-.navbar li {
-    float: left;
-}
-
-/* Container for split left and right layout */
+/* Style for the container that holds the two sides */
 .container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 80px); /* Adjust height minus the navbar */
+    height: calc(100vh - 60px); /* Full height minus the height of the navbar */
 }
 
-/* Left section (Form area) */
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: #333; /* Dark background for contrast */
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Navbar list styling */
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center align the navbar items */
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+/* Left side styling */
 .left {
     flex: 1;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Light background for left side */
 }
 
-/* Right section (Additional content area) */
+/* Right side styling */
 .right {
     flex: 1;
     padding: 20px;
-    background-color: #e0e0e0;
-    text-align: right;
+    background-color: #e0e0e0; /* Light background for right side */
+    text-align: right; /* Align text to the right */
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+main h3, main h4 {
+    font-family: Arial, sans-serif;
 }
