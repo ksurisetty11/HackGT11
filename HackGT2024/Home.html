@@ -201,7 +201,7 @@
                 return;
             }
 
-            if (!isNaN(expenseAmount) && expenseAmount > 0) {
+            if (!isNaN(expenseAmount) && (expenseAmount > 0 || selectedCategory === 'savings')) {
                 currentBalance -= expenseAmount;
                 updateBalance();
                 spendingCategories[selectedCategory] += expenseAmount;
