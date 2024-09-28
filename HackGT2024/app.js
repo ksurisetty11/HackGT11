@@ -1,22 +1,21 @@
 //variables to store category information
 
 // JavaScript to handle button clicks and update the balance
- let balance = parseFloat(localStorage.getItem('balance')) || 0.00;
+let balance = parseFloat(localStorage.getItem('balance')) || 0.00;
 
- let categories = {
-    rentAndUtilities: 0.00,
-    food: 0.00,
-    transportation: 0.00,
-    savings: 0.00,
-    miscellaneous: 0.00
-}
+ //categories
+let rentAndUtilities = parseFloat(localStorage.getItem('rentAndUtilities')) || 0.00;
+let food = parseFloat(localStorage.getItem('food')) || 0.00;
+let transportation = parseFloat(localStorage.getItem('transportation')) || 0.00;
+let savings = parseFloat(localStorage.getItem('savings')) || 0.00;
+let miscellaneous = parseFloat(localStorage.getItem('miscellaneous')) || 0.00;
+
 
  // Set the initial balance to display as $0.00
  document.addEventListener("DOMContentLoaded", function() {
      document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
+     updateDisplay();
 });
-
-document.addEventListener("DOMContentLoaded", updateDisplay);
 
  // Function to update the balance based on user input
  function updateBalance(inputId, isAdding) {
@@ -51,34 +50,39 @@ savingsActual = 15;
 
         // Function to update the displayed values
 function updateDisplay() {
-    document.getElementById("rentAndUtilitiesDisplay").innerText = categories.rentAndUtilities.toFixed(2);
-    document.getElementById("foodDisplay").innerText = categories.food.toFixed(2);
-    document.getElementById("transportationDisplay").innerText = categories.transportation.toFixed(2);
-    document.getElementById("miscellaneousDisplay").innerText = categories.miscellaneous.toFixed(2);
+        document.getElementById("rentAndUtilitiesDisplay").innerText = `$${rentAndUtilities.toFixed(2)}`;
+        document.getElementById("foodDisplay").innerText = `$${food.toFixed(2)}`;
+        document.getElementById("transportationDisplay").innerText = `$${transportation.toFixed(2)}`;
+        document.getElementById("miscellaneousDisplay").innerText = `$${miscellaneous.toFixed(2)}`;
 }
 
 document.getElementById("submitButton").addEventListener("click", function() {
     // Get the selected category and the value to update
-    const selectedCategory = document.getElementById("categorySelect").value;
-    const userInput = parseFloat(document.getElementById("updateValue").value);
-
-    // Check if the input is a valid number
-    if (!isNaN(userInput)) {
-        // Update the selected category's value
-        categories[selectedCategory] += userInput; // Update the dictionary
-
-        // Update the display
-        updateDisplay();
-        
-        // Clear the input field
-        document.getElementById("updateValue").value = '';
-    } else {
-        alert("Please enter a valid number."); // Alert if input is not valid
-    }
+    updateCategoryValue(document.getElementById("categorySelect").value, document.getElementById("updateValue").value);
 });
 
-// Initial display update on page load
-updateDisplay(); // Set initial display
+function updateCategoryValue(category, value) {
+    if (!isNaN(parseFloat(value))) {
+        value = parseFloat(value);
+        if (category == "rentAndUtilities") {
+            rentAndUtilities += value;
+            localStorage.setItem('rentAndUtilities', rentAndUtilities);
+        } else if (category == "food") {
+            food += value;
+            localStorage.setItem('food', food);
+        } else if (category == "transportation") {
+            transportation += value;
+            localStorage.setItem('transportation', transportation);
+        } else if (category == "miscellaneous") {
+            miscellaneous += value;
+            localStorage.setItem('miscellaneous', miscellaneous);
+        }
+        document.getElementById("updateValue").value = '';
+        updateDisplay();
+    } else {
+        alert("Please enter a valid number");
+    }
+}
 
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
