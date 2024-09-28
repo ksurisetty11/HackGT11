@@ -3,7 +3,7 @@
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); 
-    background-color: white; 
+    background-color: #001f3f; /* Dark blue background */
     border-radius: 15px;
     padding: 10px;
 }
@@ -16,36 +16,35 @@
 }
 
 .budget-buddy-heading {
-    /* Removed the comment syntax, replaced with /* comment */
-    background-color: white;
-    color: white; 
+    background-color: #001f3f; /* Dark blue background */
+    color: white; /* Set font color to white */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     font-family: 'Courier New', Courier, cursive;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Change shadow color */
     width: fit-content; 
     margin: 20px auto; 
-    border: 2px solid #283555; 
+    border: 2px solid white; /* White border */
 }
 
 .profile-image {
     width: 150px; /* Set a specific width for the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Optional: makes the image circular */
-    border: 2px solid white; /* Optional: add a border to the image */
+    border: 2px solid white; /* White border for the image */
 }
 
 .navbar {
     width: 100%;
-    background-color: white; /* Fixed syntax for white color */
+    background-color: #001f3f; /* Dark blue background */
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #283555; 
-    border-top: 3px solid #283555;
-    border-right: 3px solid #283555;
-    border-left: 3px solid #283555;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Change shadow color */
+    border-bottom: 3px solid white; /* White border */
+    border-top: 3px solid white; /* White border */
+    border-right: 3px solid white; /* White border */
+    border-left: 3px solid white; /* White border */
 }
 
 .navbar ul {
@@ -62,7 +61,7 @@
 
 .navbar a {
     text-decoration: none;
-    color: white; 
+    color: white; /* Set font color to white */
     font-size: 20px;
     font-family: 'Courier New', Courier, cursive;
     padding: 10px 20px;
@@ -72,18 +71,18 @@
 }
 
 .navbar a:hover {
-    background-color: rgb(231, 224, 184); /* Fixed rgb syntax */
-    color: #283555; 
-    border-color: #283555;
+    background-color: rgb(231, 224, 184); /* Retain original hover color */
+    color: #001f3f; /* Change to dark blue */
+    border-color: white; /* Change border color to white on hover */
 }
 
 /* Left side styling */
 .left {
     flex: 1;
     padding: 30px;
-    background-color: rgb(231, 224, 184);
-    border-right: 3px solid #283555; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #001f3f; /* Dark blue background */
+    border-right: 3px solid white; /* White border */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Change shadow color */
     transition: background-color 0.3s ease;
 }
 
@@ -91,9 +90,9 @@
 .right {
     flex: 1;
     padding: 30px;
-    background-color: rgb(231, 224, 184); 
+    background-color: #001f3f; /* Dark blue background */
     text-align: right;
-    border-left: 3px solid #283555; 
+    border-left: 3px solid white; /* White border */
     transition: background-color 0.3s ease;
 }
 
@@ -102,14 +101,14 @@ h1 {
     text-align: center;
     font-family: 'Courier New', Courier, cursive;
     font-size: 36px;
-    color: #2C3E50; 
+    color: white; /* Set font color to white */
     margin-bottom: 20px;
 }
 
 /* Subheading styling */
 main h3, main h4, h4 {
     font-family: 'Courier New', Courier, cursive;
-    color: #2C3E50;
+    color: white; /* Set font color to white */
 }
 
 /* Styling for the image container */
@@ -118,24 +117,24 @@ main h3, main h4, h4 {
     justify-content: center;
     align-items: center;
     height: 100vh; 
-    background-color: #2C3E50; 
-    border: 3px solid #6c7ba0;  
+    background-color: #001f3f; /* Dark blue background */
+    border: 3px solid white; /* White border */
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect for the image container */
 .image-container:hover {
-    box-shadow: 0 0 15px rgba(168, 230, 207, 0.4); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Change shadow color */
 }
 
 /* Global link styling */
 a {
-    color: #2C3E50;
+    color: white; /* Set font color to white */
     transition: color 0.3s ease;
 }
 
 /* Hover effect for all links */
 a:hover {
-    color: #97acdc; 
+    color: #97acdc; /* Retain original hover color */
     text-decoration: underline;
 }
