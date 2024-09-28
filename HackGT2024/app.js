@@ -36,15 +36,15 @@
  });
 
 //categories
-rentAndUtilities = 0;
-food = 0;
-transportation = 0;
-savings = 0;
-miscellaneous = 0;
+let categories = {
+    rentAndUtilities: 0.00,
+    food: 0.00,
+    transportation: 0.00,
+    savings: 0.00,
+    miscellaneous: 0.00
+}
 
-//goals info
 //hardcoding for testing
-balance = 0;
 savingsGoal = 100;
 savingsActual = 15;
 
