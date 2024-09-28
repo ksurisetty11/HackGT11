@@ -1,9 +1,104 @@
 <!DOCTYPE html>
-<html> <!--opening tag-->
-    <head> <!--gives browser info about page-->
-        <title>Tracker</title>
-    </head>
-    <body>
-        <h1>Test Header</h1>
-    </body>
-</html> <!--closing tag-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button to Update Value with User Input</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items horizontally */
+            gap: 10px; /* Space between elements */
+        }
+
+        #value {
+            font-size: 2rem;
+        }
+
+        .input-container {
+            display: flex; /* Use flexbox for input and button */
+            gap: 10px; /* Space between input and button */
+        }
+
+        input {
+            width: 60px;
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Container to hold the value and input boxes -->
+    <div id="container">
+        <!-- Element to display the value -->
+        <div id="value">$0.00</div>
+        
+        <!-- First input box and button -->
+        <div class="input-container">
+            <!-- Input box for user to enter a number -->
+            <input type="number" id="userInput1" placeholder="0.00" step="0.01">
+            <!-- Button to update the value -->
+            <button id="updateButton1">Update Value</button>
+        </div>
+
+        <!-- Second input box and button -->
+        <div class="input-container">
+            <!-- Input box for user to enter another number -->
+            <input type="number" id="userInput2" placeholder="0.00" step="0.01">
+            <!-- Button to update the value -->
+            <button id="updateButton2">Update Value</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle button click and update the value
+        let value = 0.00;
+
+        // Set the initial value to display as $0.00
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("value").innerText = `$${value.toFixed(2)}`;
+        });
+
+        // Function to update the value based on user input
+        function updateValue(inputId) {
+            // Get the value from the specified input box
+            const userInput = parseFloat(document.getElementById(inputId).value);
+            
+            // Check if userInput is a valid number
+            if (!isNaN(userInput)) {
+                value += userInput; // Add the user input to the current value
+                document.getElementById("value").innerText = `$${value.toFixed(2)}`; // Update the displayed value in currency format
+                
+                // Clear the input box after updating
+                document.getElementById(inputId).value = '';
+            } else {
+                alert("Please enter a valid number");
+            }
+        }
+
+        // Event listeners for the first and second update buttons
+        document.getElementById("updateButton1").addEventListener("click", function () {
+            updateValue("userInput1");
+        });
+
+        document.getElementById("updateButton2").addEventListener("click", function () {
+            updateValue("userInput2");
+        });
+    </script>
+</body>
+
+</html>
