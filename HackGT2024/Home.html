@@ -7,14 +7,38 @@
     <title>Budget Buddy - Home</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
     <style>
+<<<<<<< HEAD
         body{
             background: rgb(11, 54, 124);
         }
+=======
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left {
+            flex: 1;
+            padding: 20px;
+        }
+
+>>>>>>> 68305e4eb7103e712fba22dbdbf80e8223297169
         .right {
             flex: 1;
             padding: 20px;
             background-color: rgb(231, 224, 184);;
             text-align: left;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
         }
 
         .custom-heading {
@@ -41,6 +65,18 @@
 
         #categorySelect option {
             color: black;
+            font-family: inherit;
+        }
+
+        h3 {
+            margin-bottom: 0;
+        }
+
+        #balanceDisplay {
+            font-size: 1.5em;
+            margin-top: 0;
+            font-family: inherit;
+            color: rgb(43, 61, 79);
         }
     </style>
 </head>
@@ -54,7 +90,6 @@
     <nav class="navbar">
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="tracker.html">Tracker</a></li>
             <li><a href="goals.html">Goals</a></li>
             <li><a href="profile.html">Profile</a></li>
         </ul>
@@ -96,20 +131,81 @@
                         <option value="transportation">Transportation</option>
                     </select>
             
+<<<<<<< HEAD
                     <input type="number" id="updateValue" placeholder="Enter new value" step="1.00" style="margin-top: 5px;">
                     
                     <button id="submitButton" style="margin-top: 5px;">Submit</button>
+=======
+                    <input type="number" id="updateValue" placeholder="Enter new value" step="1.00" style="margin-top: 5px;">    
+                    <button id="submitExpenseButton" style="margin-top: 5px;">Submit Expense</button>
+>>>>>>> 68305e4eb7103e712fba22dbdbf80e8223297169
                 </section>
                 <section>
                     <h3> </h3>
                     <h3 class="custom-heading"><b>Deposits</b></h3>      
-                    <input type="number" id="updateValue2" placeholder="Enter new value" step="0.01" style="margin-top: 5px;">
-                    <button id="submitButton2" style="margin-top: 5px;">Submit</button>
+                    <input type="number" id="depositInput" placeholder="Enter new value" step="0.01" min="0" style="margin-top: 5px;">
+                    <button id="submitDepositButton" style="margin-top: 5px;">Submit Deposit</button>
+                </section>
+                <section>
+                    <h3> </h3>
+                    <h3>Current Balance</h3>
+                    <div id="balanceDisplay">$0.00</div>
                 </section>
                 
             </main>
         </div>
     </div>
 
+    <script>
+        const spendingCategories = {
+            miscellaneous: parseFloat(localStorage.getItem('miscellaneous')) || 0,
+            rentAndUtilities: parseFloat(localStorage.getItem('rentAndUtilities')) || 0,
+            food: parseFloat(localStorage.getItem('food')) || 0,
+            transportation: parseFloat(localStorage.getItem('transportation')) || 0
+        };
+
+        document.getElementById('miscellaneous').innerText = spendingCategories.miscellaneous.toFixed(2);
+        document.getElementById('rentAndUtilitiesDisplay').innerText = spendingCategories.rentAndUtilities.toFixed(2);
+        document.getElementById('foodDisplay').innerText = spendingCategories.food.toFixed(2);
+        document.getElementById('transportationDisplay').innerText = spendingCategories.transportation.toFixed(2);
+
+        let currentBalance = parseFloat(localStorage.getItem('currentBalance')) || 0;
+    
+        function updateBalance() {
+            document.getElementById('balanceDisplay').innerText = `$${currentBalance.toFixed(2)}`;
+            localStorage.setItem('currentBalance', currentBalance);
+        }
+
+        updateBalance();
+
+         document.getElementById('submitDepositButton').addEventListener('click', function() {
+            const depositAmount = parseFloat(document.getElementById('depositInput').value);
+            if (!isNaN(depositAmount) && depositAmount >= 0) {
+                currentBalance += depositAmount;
+                updateBalance();
+                document.getElementById('depositInput').value = ''; // Clear input field
+            }
+        });
+
+        document.getElementById('submitExpenseButton').addEventListener('click', function() {
+            const expenseAmount = parseFloat(document.getElementById('updateValue').value);
+            const selectedCategory = document.getElementById('categorySelect').value;
+
+            if(!selectedCategory) {
+                alert("Please select a category before submitting the expense.");
+                return;
+            }
+
+            if (!isNaN(expenseAmount) && expenseAmount > 0) {
+                currentBalance -= expenseAmount;
+                updateBalance();
+                spendingCategories[selectedCategory] += expenseAmount;
+                localStorage.setItem(selectedCategory, spendingCategories[selectedCategory]);
+                document.getElementById(selectedCategory + 'Display').innerText = spendingCategories[selectedCategory].toFixed(2);
+                document.getElementById('updateValue').value = '';
+                document.getElementById('categorySelect').selectedIndex = 0;
+                }    
+        });
+    </script>
 </body>
 </html>
