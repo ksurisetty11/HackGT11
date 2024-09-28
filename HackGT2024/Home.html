@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
     <style>
         body{
-            background: rgb(67, 106, 168);
+            background: white;
             margin: 0;
             overflow-x: hidden;
             color: white
@@ -29,13 +29,24 @@
         .right {
             flex: 1;
             padding: 20px;
-            background-color: rgb(67, 106, 168);
+            background-color: rgb(176, 231, 234);
             text-align: left;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            background-color: white;
+            border: 3px solid white;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
         }
 
         .image-container img {
             max-width: 100%;
-            height: auto;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .custom-heading {
