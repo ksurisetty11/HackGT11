@@ -26,7 +26,9 @@
         <!-- Left section -->
         <div class="left">
             <section> <!-- Image on left side -->
-                <img id="DuckAvatar" src="images/HappyDuck.svg" alt="Duck Avatar">
+                <div class="image-container">
+                    <img id="DuckAvatar" src="images/HappyDuck.svg" alt="Duck Avatar">
+                </div>
             </section>
         </div>
 
@@ -35,12 +37,12 @@
             <main>
                 <h3>This is the Home page</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minus eveniet recusandae dicta similique numquam voluptas quos tempore cupiditate pariatur, laudantium fugit alias quia veritatis nesciunt quaerat molestias adipisci assumenda.</p>
+                
                 <section>
                     <h3>Spending</h3>
-                    <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay"></span></p>
-                    <p>Food: <span id="foodDisplay"></span></p>
-                    <p>Transportation: <span id="transportationDisplay"></span></p>
-                    <h3>Categories</h3>
+                    <p>Rent and Utilities: <span id="rentAndUtilitiesDisplay">0.00</span></p>
+                    <p>Food: <span id="foodDisplay">0.00</span></p>
+                    <p>Transportation: <span id="transportationDisplay">0.00</span></p>
                 </section>
                 <section>
                     <label for="categorySelect">Choose a category:</label>
@@ -50,13 +52,12 @@
                         <option value="food">Food</option>
                         <option value="transportation">Transportation</option>
                     </select>
-
-                    <input type="number" id="updateValue" placeholder="Enter new value">
             
+                    <input type="number" id="updateValue" placeholder="Enter new value" step="0.01">
+                    
                     <button id="submitButton">Submit</button>
-            
-                    <button onclick="updateCategory()">Submit</button>
                 </section>
+                
             </main>
         </div>
     </div>

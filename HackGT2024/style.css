@@ -56,3 +56,9 @@ h1 {
 main h3, main h4 {
     font-family: 'Courier New', Courier, cursive;
 }
+.image-container {
+    display: flex;               /* Use flexbox for alignment */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically */
+    height: 100vh;              /* Full viewport height for vertical centering */
+}
