@@ -1,13 +1,16 @@
 /* Container that holds the two sides */
 body {
-    color: white;
+    background: white; /* White background for the body */
+    margin: 0;
+    overflow-x: hidden;
+    color: #001f3f; /* Dark blue font color */
 }
 
 .container {
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); 
-    background-color: #001f3f; /* Dark blue background */
+    background-color: white; /* White background */
     border-radius: 15px;
     padding: 10px;
 }
@@ -20,35 +23,35 @@ body {
 }
 
 .budget-buddy-heading {
-    background-color: #001f3f; /* Dark blue background */
-    color: white; /* Set font color to white */
+    background-color: white; /* White background */
+    color: #001f3f; /* Dark blue font color */
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     font-family: 'Courier New', Courier, cursive;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Change shadow color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Change shadow color */
     width: fit-content; 
     margin: 20px auto; 
-    border: 2px solid white; /* White border */
+    border: 2px solid #001f3f; /* Dark blue border */
 }
 
 .profile-image {
     width: 150px; /* Set a specific width for the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Optional: makes the image circular */
-    border: 2px solid white; /* White border for the image */
+    border: 2px solid #001f3f; /* Dark blue border for the image */
 }
 
 .navbar {
     width: 100%;
-    background-color: #001f3f; /* Dark blue background */
+    background-color: white; /* White background */
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Change shadow color */
-    border-bottom: 3px solid white; /* White border */
-    border-top: 3px solid white; /* White border */
-    border-right: 3px solid white; /* White border */
-    border-left: 3px solid white; /* White border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Change shadow color */
+    border-bottom: 3px solid #001f3f; /* Dark blue border */
+    border-top: 3px solid #001f3f; /* Dark blue border */
+    border-right: 3px solid #001f3f; /* Dark blue border */
+    border-left: 3px solid #001f3f; /* Dark blue border */
 }
 
 .navbar ul {
@@ -65,7 +68,7 @@ body {
 
 .navbar a {
     text-decoration: none;
-    color: white; /* Set font color to white */
+    color: #001f3f; /* Dark blue font color */
     font-size: 20px;
     font-family: 'Courier New', Courier, cursive;
     padding: 10px 20px;
@@ -76,17 +79,17 @@ body {
 
 .navbar a:hover {
     background-color: rgb(231, 224, 184); /* Retain original hover color */
-    color: #001f3f; /* Change to dark blue */
-    border-color: white; /* Change border color to white on hover */
+    color: #001f3f; /* Dark blue on hover */
+    border-color: #001f3f; /* Dark blue border on hover */
 }
 
 /* Left side styling */
 .left {
     flex: 1;
     padding: 30px;
-    background-color: #001f3f; /* Dark blue background */
-    border-right: 3px solid white; /* White border */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Change shadow color */
+    background-color: white; /* White background */
+    border-right: 3px solid #001f3f; /* Dark blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Change shadow color */
     transition: background-color 0.3s ease;
 }
 
@@ -94,9 +97,9 @@ body {
 .right {
     flex: 1;
     padding: 30px;
-    background-color: #001f3f; /* Dark blue background */
+    background-color: white; /* White background */
     text-align: right;
-    border-left: 3px solid white; /* White border */
+    border-left: 3px solid #001f3f; /* Dark blue border */
     transition: background-color 0.3s ease;
 }
 
@@ -105,14 +108,14 @@ h1 {
     text-align: center;
     font-family: 'Courier New', Courier, cursive;
     font-size: 36px;
-    color: white; /* Set font color to white */
+    color: #001f3f; /* Dark blue font color */
     margin-bottom: 20px;
 }
 
 /* Subheading styling */
-main h3, main h4{
+main h3, main h4 {
     font-family: 'Courier New', Courier, cursive;
-    color: white; /* Set font color to white */
+    color: #001f3f; /* Dark blue font color */
 }
 
 /* Styling for the image container */
@@ -121,19 +124,19 @@ main h3, main h4{
     justify-content: center;
     align-items: center;
     height: 100vh; 
-    background-color: #001f3f; /* Dark blue background */
-    border: 3px solid white; /* White border */
+    background-color: white; /* White background */
+    border: 3px solid #001f3f; /* Dark blue border */
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover effect for the image container */
 .image-container:hover {
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Change shadow color */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Change shadow color */
 }
 
 /* Global link styling */
 a {
-    color: white; /* Set font color to white */
+    color: #001f3f; /* Dark blue font color */
     transition: color 0.3s ease;
 }
 
