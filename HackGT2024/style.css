@@ -2,8 +2,8 @@
 .container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 60px); /* Full height minus the height of the navbar */
-    background-color: #A4DDED; /* Bright duck egg blue for the main background */
+    height: calc(100vh - 60px); 
+    background-color: #A4DDED; 
     border-radius: 15px;
     padding: 10px;
 }
