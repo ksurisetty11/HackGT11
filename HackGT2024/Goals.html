@@ -26,24 +26,23 @@
         <!-- Left section (optional for this page) -->
         <div class="left">
             <main>
-                <h3>Goal-Setting: Expense Goals</h3>
-                <p>Let's set our expense goals! For each category, enter your goal amount.</p>
+                <h3>Expense Goals</h3>
+                <p>Let's set our expense goals!</p>
                 <section>
                     <form>
-                        <label for="inputValue1">Enter your desired maximum spendings on rent and utilities: </label>
+                        <p>Enter your desired maximum spendings in these categories: </p>
+                        <label for="inputValue1">Rent and utilities: </label>
                         <input type="text" id="inputValue1" name="inputValue1">
                         <br>
-                        <label for="inputValue2">Enter your desired maximum spendings on food and groceries: </label>
+                        <label for="inputValue2">Food and groceries: </label>
                         <input type="text" id="inputValue2" name="inputValue2">
                         <br>
-                        <label for="inputValue3">Enter your desired maximum spendings on transportation: </label>
+                        <label for="inputValue3">Transportation: </label>
                         <input type="text" id="inputValue3" name="inputValue3">
                         <br>
-                        <label for="inputValue4">Enter your desired maximum spendings on miscellaneous: </label>
+                        <label for="inputValue4">Miscellaneous: </label>
                         <input type="text" id="inputValue4" name="inputValue4">
                         <br>
-                        <label for="inputValue5">Enter your desired minimum savings: </label>
-                        <input type="text" id="inputValue5" name="inputValue5">
                         <button onclick="assignInputs();">Submit</button>
                         <br>
                     </form>
@@ -54,9 +53,17 @@
 
         <!-- Right section -->
         <div class="right">
-            <section> <!-- Empty or an image can be added here -->
-                <h3>Goal-Setting: Savings Goals</h3>
-                <p>Set your savings goal to achieve financial success! Entire your goal amount below.</p>
+            <section>
+                <form>
+                    <h3>Savings Goals</h3>
+                    <p>Let's set our savings goals! 
+                    <p>Entire your goal amount below: </p>
+                    <label for="inputValue5">Savings: </label>
+                    <input type="text" id="inputValue5" name="inputValue5">
+                    <button onclick="assignSavings();">Submit</button>
+                    <br>
+                </form>
+                <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
             </section>
         </div>
     </div>
@@ -68,17 +75,25 @@
             const inputValue2 = document.getElementById('inputValue2').value;
             const inputValue3 = document.getElementById('inputValue3').value;
             const inputValue4 = document.getElementById('inputValue4').value;
-            const inputValue5 = document.getElementById('inputValue5').value;
             
             // Assign the values to the preexisting variables
             rentAndUtilities = inputValue1;
             food = inputValue2;
             transportation = inputValue3;
             miscellaneous = inputValue4;
+
+            // Confirmation message
+            document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
+        }
+        function assignSavings() {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+            const inputValue5 = document.getElementById('inputValue5').value;
+            
+            // Assign the values to the preexisting variables
             savings = inputValue5;
 
             // Confirmation message
-            document.getElementById('confirmationMessage').innerText = "Your goals have been updated!";
+            document.getElementById('confirmationMessage').innerText = "Your savings goals have been updated!";
         }
     </script>
 </body>
