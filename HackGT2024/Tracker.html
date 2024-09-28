@@ -92,7 +92,7 @@
 
     <script>
         // JavaScript to handle button clicks and update the balance
-        let balance = 0.00;
+        let balance = parseFloat(localStorage.getItem('balance')) || 0.00;
 
         // Set the initial balance to display as $0.00
         document.addEventListener("DOMContentLoaded", function() {
@@ -109,7 +109,7 @@
                 // Update the balance based on whether we are adding or subtracting
                 balance += isAdding ? userInput : -userInput;
                 document.getElementById("value").innerText = `$${balance.toFixed(2)}`; // Update the displayed balance
-                
+                localStorage.setItem('balance', balance);
                 // Clear the input box after updating
                 document.getElementById(inputId).value = '';
             } else {
