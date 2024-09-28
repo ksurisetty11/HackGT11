@@ -85,11 +85,11 @@ function updateCategoryValue(category, value) {
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
 
-if (balance / savings > .75) {
+if (savings / savingsGoal > .75) {
     duckAvatar.src = 'images/veryHappyDuck.svg';
-} else if (balance / savings > .5) {
+} else if (savings / savingsGoal > .5) {
     duckAvatar.src = 'images/happyDuck.svg';
-} else if (balance / savings > .3) {
+} else if (savings / savingsGoal > .3) {
     duckAvatar.src = 'images/concernedDuck.svg';
 } else {
     duckAvatar.src = 'images/sadDuck.svg';
