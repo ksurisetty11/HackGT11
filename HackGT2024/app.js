@@ -51,10 +51,10 @@ savingsActual = 15;
 
         // Function to update the displayed values
 function updateDisplay() {
-    document.getElementById("rentAndUtilitiesDisplay").innerText = categories.rentAndUtilities.toFixed(2);
-    document.getElementById("foodDisplay").innerText = categories.food.toFixed(2);
-    document.getElementById("transportationDisplay").innerText = categories.transportation.toFixed(2);
-    document.getElementById("miscellaneousDisplay").innerText = categories.miscellaneous.toFixed(2);
+    document.getElementById("rentAndUtilitiesDisplay").innerText = categories.rentAndUtilities;
+    document.getElementById("foodDisplay").innerText = categories.food;
+    document.getElementById("transportationDisplay").innerText = categories.transportation;
+    document.getElementById("miscellaneousDisplay").innerText = categories.miscellaneous;
 }
 
 document.getElementById("submitButton").addEventListener("click", function() {
@@ -62,23 +62,12 @@ document.getElementById("submitButton").addEventListener("click", function() {
     const selectedCategory = document.getElementById("categorySelect").value;
     const userInput = parseFloat(document.getElementById("updateValue").value);
 
-    // Check if the input is a valid number
-    if (!isNaN(userInput)) {
-        // Update the selected category's value
-        categories[selectedCategory] += userInput; // Update the dictionary
+    categories[selectedCategory] += userInput;
+    // Update the display
+    updateDisplay();
 
-        // Update the display
-        updateDisplay();
-        
-        // Clear the input field
-        document.getElementById("updateValue").value = '';
-    } else {
-        alert("Please enter a valid number."); // Alert if input is not valid
-    }
+    document.getElementById("updateValue").value = 0.0;
 });
-
-// Initial display update on page load
-updateDisplay(); // Set initial display
 
 //avatar update functionality
 const duckAvatar = document.getElementById("DuckAvatar");
