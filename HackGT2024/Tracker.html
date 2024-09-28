@@ -24,9 +24,9 @@
     
         #container {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center items horizontally */
-            gap: 10px; /* Space between elements */
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         #value {
@@ -34,8 +34,8 @@
         }
 
         .input-container {
-            display: flex; /* Use flexbox for input and button */
-            gap: 10px; /* Space between input and button */
+            display: flex;
+            gap: 10px;
         }
 
         input {
@@ -45,7 +45,7 @@
         }
 
         .balance-label {
-            font-size: 1.5rem; /* Size for the label */
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -98,25 +98,17 @@
 </body>
 
 <body>
-    <!-- Container to hold the value and input boxes -->
     <div id="container">
-        <!-- Element to display the current balance -->
         <div class="balance-label">Current Balance:</div>
         <div id="value">$0.00</div>
         
-        <!-- First input box and buttons -->
         <div class="input-container">
-            <!-- Input box for user to enter a number -->
             <input type="number" id="userInput1" placeholder="0.00" step="0.01">
-            <!-- Button to add to the balance -->
             <button id="addButton">Deposit</button>
         </div>
 
-        <!-- Second input box and button for subtraction -->
         <div class="input-container">
-            <!-- Input box for user to enter another number -->
             <input type="number" id="userInput2" placeholder="0.00" step="0.01">
-            <!-- Button to subtract from the balance -->
             <button id="subtractButton">Expense</button>
         </div>
     </div>

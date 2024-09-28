@@ -1,17 +1,23 @@
-body{
+/* Global Styles */
+body {
     margin: 0px;
 }
-main{
-    margin-left: 20px;
+
+/* Main section margin adjustment */
+main {
     margin-left: 20px;
 }
-h1{
+
+/* Header Styles */
+h1 {
     background-color: hsl(204, 72%, 24%);
     opacity: 0.8;
-    color: rgb(240, 233, 233); 
-    text-align: center; 
+    color: rgb(240, 233, 233);
+    text-align: center;
 }
-.navbar ul{
+
+/* Navbar Styling */
+.navbar ul {
     list-style-type: none;
     background-color: hsl(204, 72%, 24%);
     opacity: 0.8;
@@ -22,17 +28,45 @@ h1{
     justify-content: space-around;
     align-items: center;
 }
-.navbar a{
-    color: rgb(240, 233, 233); 
+
+/* Navbar link styling */
+.navbar a {
+    color: rgb(240, 233, 233);
     font-family: "Didot", "serif";
     text-decoration: none;
     padding: 15px;
     display: block;
-    text-align: center; 
+    text-align: center;
 }
-.navbar a:hover{
-    background-color: hsl(211, 33%, 43%); 
+
+/* Hover effect for navbar links */
+.navbar a:hover {
+    background-color: hsl(211, 33%, 43%);
 }
-.navbar li{
-    float: left; 
+
+/* Navbar list item */
+.navbar li {
+    float: left;
+}
+
+/* Container for split left and right layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px); /* Adjust height minus the navbar */
+}
+
+/* Left section (Form area) */
+.left {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Right section (Additional content area) */
+.right {
+    flex: 1;
+    padding: 20px;
+    background-color: #e0e0e0;
+    text-align: right;
 }
