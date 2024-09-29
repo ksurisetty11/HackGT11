@@ -160,6 +160,14 @@
     </div>
 
     <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
+            updateDisplay();
+            goal = parseFloat(localStorage.getItem('savingsGoal'));
+            updateDuck(goal);
+        });
+        
         const spendingCategories = {
             miscellaneous: parseFloat(localStorage.getItem('miscellaneous')) || 0,
             rentAndUtilities: parseFloat(localStorage.getItem('rentAndUtilities')) || 0,
@@ -209,8 +217,40 @@
                 document.getElementById(selectedCategory + 'Display').innerText = spendingCategories[selectedCategory].toFixed(2);
                 document.getElementById('updateValue').value = '';
                 document.getElementById('categorySelect').selectedIndex = 0;
-                }    
+                }
+                
+            updateDuck();
         });
+
+        function updateDuck() {
+
+            const duckAvatar = document.getElementById("DuckAvatar");
+
+            // Retrieve and parse the latest savings and savingsGoal from localStorage
+            const currentSavings = parseFloat(localStorage.getItem('savings')) || 0.00;
+            const currentSavingsGoal = parseFloat(localStorage.getItem('savingsGoal')) || 0.00;
+
+            // Prevent division by zero by setting a default savingsGoal if it's zero
+            if (currentSavingsGoal === 0) {
+                duckAvatar.src = 'images/sadDuck.svg'; // Default to sad duck if no savings goal is set
+                return;
+            }
+
+            // Calculate the savings ratio
+            const ratio = currentSavings / currentSavingsGoal;
+
+
+            // Update the duck avatar based on the ratio
+            if (ratio > 0.75) {
+                duckAvatar.src = 'images/veryHappyDuck.svg';
+            } else if (ratio > 0.5) {
+                duckAvatar.src = 'images/happyDuck.svg';
+            } else if (ratio > 0.3) {
+                duckAvatar.src = 'images/concernedDuck.svg';
+            } else {
+                duckAvatar.src = 'images/sadDuck.svg';
+            }
+            }
     </script>
 </body>
 </html>
