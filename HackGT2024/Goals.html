@@ -34,18 +34,25 @@
                         <p>Enter your desired maximum spendings in these categories: </p>
                         <label for="inputValue1">Rent and utilities: </label>
                         <input type="text" id="inputValue1" name="inputValue1">
+                        <span id="rentAndUtilitiesGoal" class="goal-display"></span>
                         <br>
+
                         <p> </p>
                         <label for="inputValue2">Food and groceries: </label>
                         <input type="text" id="inputValue2" name="inputValue2">
+                        <span id="foodGoal" class="goal-display"></span>
                         <br>
+
                         <p> </p>
                         <label for="inputValue3">Transportation: </label>
                         <input type="text" id="inputValue3" name="inputValue3">
+                        <span id="transportationGoal" class="goal-display"></span>
                         <br>
+
                         <p> </p>
                         <label for="inputValue4">Miscellaneous: </label>
                         <input type="text" id="inputValue4" name="inputValue4">
+                        <span id="miscellaneousGoal" class="goal-display"></span>
                         <br>
                         <p> </p>
                         <button onclick="assignInputs();">Submit</button>
@@ -81,16 +88,58 @@
             const inputValue2 = document.getElementById('inputValue2').value;
             const inputValue3 = document.getElementById('inputValue3').value;
             const inputValue4 = document.getElementById('inputValue4').value;
-            
+    
             // Assign the values to the preexisting variables
             rentAndUtilities = inputValue1;
             food = inputValue2;
             transportation = inputValue3;
             miscellaneous = inputValue4;
 
+            // Update the goal displays
+            if (inputValue1) {
+                updateExpenseGoalDisplay('rentAndUtilities', inputValue1);
+            } else {
+                document.getElementById('rentAndUtilitiesGoal').innerHTML = ''; // Clear if no input
+            }
+            
+            if (inputValue2) {
+                updateExpenseGoalDisplay('food', inputValue2);
+            } else {
+                document.getElementById('foodGoal').innerHTML = ''; // Clear if no input
+            }
+            
+            if (inputValue3) {
+                updateExpenseGoalDisplay('transportation', inputValue3);
+            } else {
+                document.getElementById('transportationGoal').innerHTML = ''; // Clear if no input
+            }
+            
+            if (inputValue4) {
+                updateExpenseGoalDisplay('miscellaneous', inputValue4);
+            } else {
+                document.getElementById('miscellaneousGoal').innerHTML = ''; // Clear if no input
+            }
+
             // Confirmation message
             document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
         }
+
+
+        function updateExpenseGoalDisplay(category, goal) {
+            const formattedGoal = parseFloat(goal).toFixed(2);
+            document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$" + formattedGoal;
+        }
+
+        function loadExpenseGoals() {
+            const categories = ['rentAndUtilities', 'food', 'transporation', 'miscellaneous'];
+            categories.forEach(category => {
+                const savedGoal = localStorage.getItem(category + 'Goal');
+                if (savedGoal) {
+                    updateExpenseGoalDisplay(category, savedGoal);
+                }
+            })
+        }
+
         function assignSavings() {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
             const inputValue5 = document.getElementById('inputValue5').value;
@@ -117,6 +166,7 @@
             }
         }
 
+        loadExpenseGoals();
         loadSavingsGoal();
     </script>
 </body>
