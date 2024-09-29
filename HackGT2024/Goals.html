@@ -142,12 +142,11 @@
 
         function assignSavings() {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
-            const inputValue5 = document.getElementById('inputValue5').value;
+            const inputValue5 = parseFloat(document.getElementById('inputValue5').value);
             
             // Assign the values to the preexisting variables
             savingsGoal = inputValue5;
-
-            localStorage.setItem('savingsGoal', inputValue5);
+            localStorage.setItem('savingsGoal', savingsGoal);
 
             // Confirmation message
             updateSavingsGoalDisplay(inputValue5);
