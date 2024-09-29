@@ -53,8 +53,6 @@
                     </form>
                     <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
                 </section>
-                <p><strong>Saved Goals:</strong></p>
-                <p id="savedGoals"></p>
             </main>
         </div>
 
@@ -69,7 +67,6 @@
                     <input type="text" id="inputValue5" name="inputValue5">
                     <p>Current savings: <span id="savings">0.00</span></p>
                     <button onclick="assignSavings();">Submit</button>
-                    <p id="savingsGoalDisplay" style="margin-top: 20px;"></p>
                     <br>
                 </form>
                 <p id="savingConfirmationMessage"></p> <!-- To display the confirmation message -->
@@ -78,14 +75,6 @@
     </div>
 
     <script>
-        function loadGoals() {
-            const savedSavings = localStorage.getItem('savingsGoal');
-            if (savedSavings) {
-                document.getElementById('savingsGoalDisplay').innerText = "Savings goal: $" + savedSavings;
-                document.getElementById('savingsGoalDisplay').style.font.Weight = "bold";
-            }
-        }
-
         function assignInputs() {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
             const inputValue1 = document.getElementById('inputValue1').value;
@@ -101,7 +90,6 @@
 
             // Confirmation message
             document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
-            displaySavedGoals();
         }
         function assignSavings() {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
@@ -113,28 +101,7 @@
             // Confirmation message
             document.getElementById('savingConfirmationMessage').innerText = "Your savings goals have been updated!";
             document.getElementById('savingConfirmationMessage').style.textAlign = "left";
-
-            document.getElementById('savingsGoalDisplay').innerText = "Savings goal: $" + savingsGoal;
-            document.getElementById('savingsGoalDisplay').style.fontWeight = "bold";
         }
-
-        function displaySavedGoals() {
-            const rent = localStorage.getItem('rentAndUtilities');
-            const food = localStorage.getItem('food');
-            const transportation = localStorage.getItem('transportation');
-            const miscellaneous = localStorage.getItem('miscellaneous');
-            document.getElementById('savedGoals').innerHTML = `
-                Rent and utilities: <strong>$${rent}</strong><br>
-                Food: <strong>$${food}</strong><br>
-                Transportation: <strong>$${transportation}</strong><br>
-                Miscellaneous: <strong>$${miscellaneous}</strong>
-            `;
-        }
-
-        window.onload = function() {
-            loadGoals();
-            displaySavedGoals();
-        };
     </script>
 </body>
 </html>
