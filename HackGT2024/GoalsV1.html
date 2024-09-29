@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Buddy - Goals</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to shared CSS -->
+</head>
+<body>
+
+    <div class="budget-buddy-container">
+        <h1 class="budget-buddy-heading">Budget Buddy</h1>
+    </div> 
+
+    <!-- Navbar that spans the full width -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="goals.html">Goals</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Container for the content -->
+    <div class="container">
+        <!-- Left section (optional for this page) -->
+        <div class="left">
+            <main>
+                <h3>Expense Goals</h3>
+                <p>Let's set our expense goals!</p>
+                <section>
+                    <form>
+                        <p>Enter your desired maximum spendings in these categories: </p>
+                        <label for="inputValue1">Rent and utilities: </label>
+                        <input type="text" id="inputValue1" name="inputValue1">
+                        <br>
+                        <p> </p>
+                        <label for="inputValue2">Food and groceries: </label>
+                        <input type="text" id="inputValue2" name="inputValue2">
+                        <br>
+                        <p> </p>
+                        <label for="inputValue3">Transportation: </label>
+                        <input type="text" id="inputValue3" name="inputValue3">
+                        <br>
+                        <p> </p>
+                        <label for="inputValue4">Miscellaneous: </label>
+                        <input type="text" id="inputValue4" name="inputValue4">
+                        <br>
+                        <p> </p>
+                        <button onclick="assignInputs();">Submit</button>
+                        <br>
+                    </form>
+                    <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
+                </section>
+            </main>
+        </div>
+
+        <!-- Right section -->
+        <div class="right">
+            <main>
+                <form style="text-align: left;">
+                    <h3>Savings Goals</h3>
+                    <p>Let's set our savings goals! 
+                    <p>Entire your goal amount below: </p>
+                    <label for="inputValue5">Savings: </label>
+                    <input type="text" id="inputValue5" name="inputValue5">
+                    <p>Current savings: <span id="savings">0.00</span></p>
+                    <button onclick="assignSavings();">Submit</button>
+                    <br>
+                </form>
+                <p id="savingConfirmationMessage"></p> <!-- To display the confirmation message -->
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function assignInputs() {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+            const inputValue1 = document.getElementById('inputValue1').value;
+            const inputValue2 = document.getElementById('inputValue2').value;
+            const inputValue3 = document.getElementById('inputValue3').value;
+            const inputValue4 = document.getElementById('inputValue4').value;
+            
+            // Assign the values to the preexisting variables
+            rentAndUtilities = inputValue1;
+            food = inputValue2;
+            transportation = inputValue3;
+            miscellaneous = inputValue4;
+
+            // Confirmation message
+            document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
+        }
+        function assignSavings() {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+            const inputValue5 = document.getElementById('inputValue5').value;
+            
+            // Assign the values to the preexisting variables
+            savingsGoal = inputValue5;
+
+            // Confirmation message
+            document.getElementById('savingConfirmationMessage').innerText = "Your savings goals have been updated!";
+            document.getElementById('savingConfirmationMessage').style.textAlign = "left";
+        }
+    </script>
+</body>
+</html>

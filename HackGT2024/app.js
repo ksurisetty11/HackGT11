@@ -51,11 +51,13 @@ function updateDisplay() {
         document.getElementById("foodDisplay").innerText = `$${food.toFixed(2)}`;
         document.getElementById("transportationDisplay").innerText = `$${transportation.toFixed(2)}`;
         document.getElementById("miscellaneousDisplay").innerText = `$${miscellaneous.toFixed(2)}`;
+        document.getElementById("savingsDisplay").innerText = `$${savings.toFixed(2)}`;
 }
 
 document.getElementById("submitButton").addEventListener("click", function() {
     // Get the selected category and the value to update
     updateCategoryValue(document.getElementById("categorySelect").value, document.getElementById("updateValue").value);
+    updateDuck();
 });
 
 function updateCategoryValue(category, value) {
@@ -82,16 +84,19 @@ function updateCategoryValue(category, value) {
     }
 }
 
-//avatar update functionality
-const duckAvatar = document.getElementById("DuckAvatar");
+function updateDuck() {
 
-if (savings / savingsGoal > .75) {
-    duckAvatar.src = 'images/veryHappyDuck.svg';
-} else if (savings / savingsGoal > .5) {
-    duckAvatar.src = 'images/happyDuck.svg';
-} else if (savings / savingsGoal > .3) {
-    duckAvatar.src = 'images/concernedDuck.svg';
-} else {
-    duckAvatar.src = 'images/sadDuck.svg';
+    const duckAvatar = document.getElementById("DuckAvatar");
+
+    if (savings / savingsGoal > .75) {
+        duckAvatar.src = 'images/veryHappyDuck.svg';
+    } else if (savings / savingsGoal > .5) {
+        duckAvatar.src = 'images/happyDuck.svg';
+    } else if (savings / savingsGoal > .3) {
+        duckAvatar.src = 'images/concernedDuck.svg';
+    } else {
+        duckAvatar.src = 'images/sadDuck.svg';
+    }
+
 }
     
