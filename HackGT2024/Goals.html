@@ -35,30 +35,31 @@
                         <label for="inputValue1">Rent and utilities: </label>
                         <input type="text" id="inputValue1" name="inputValue1">
                         <span id="rentAndUtilitiesGoal" class="goal-display"></span>
+                        <p> </p>
                         <br>
 
-                        <p> </p>
                         <label for="inputValue2">Food and groceries: </label>
                         <input type="text" id="inputValue2" name="inputValue2">
                         <span id="foodGoal" class="goal-display"></span>
+                        <p> </p>
                         <br>
 
-                        <p> </p>
                         <label for="inputValue3">Transportation: </label>
                         <input type="text" id="inputValue3" name="inputValue3">
                         <span id="transportationGoal" class="goal-display"></span>
+                        <p> </p>
                         <br>
 
-                        <p> </p>
                         <label for="inputValue4">Miscellaneous: </label>
                         <input type="text" id="inputValue4" name="inputValue4">
                         <span id="miscellaneousGoal" class="goal-display"></span>
-                        <br>
                         <p> </p>
-                        <button type="button" onclick="assignInputs(event);">Submit</button> <!-- Changed to type="button" -->
+                        <br>
+
+                        <button type="button" onclick="assignInputs();">Submit</button>
                         <br>
                     </form>
-                    <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
+                    <p id="confirmationMessage"></p>
                 </section>
             </main>
         </div>
@@ -72,39 +73,37 @@
                     <p>Enter your goal amount below: </p>
                     <label for="inputValue5">Savings: </label>
                     <input type="text" id="inputValue5" name="inputValue5">
-                    <button type="button" onclick="assignSavings(event);">Submit</button> <!-- Changed to type="button" -->
+                    <button type="button" onclick="assignSavings();">Submit</button>
                     <p id="savingsGoalDisplay" style="margin-top: 20px;"></p>
                     <br>
                 </form>
-                <p id="savingConfirmationMessage"></p> <!-- To display the confirmation message -->
+                <p id="savingConfirmationMessage"></p>
             </main>
         </div>
     </div>
 
     <script>
-        function assignInputs(event) {
-            event.preventDefault(); // Prevent the form from submitting and refreshing the page
-            const inputValue1 = document.getElementById('inputValue1').value;
-            const inputValue2 = document.getElementById('inputValue2').value;
-            const inputValue3 = document.getElementById('inputValue3').value;
-            const inputValue4 = document.getElementById('inputValue4').value;
-            
-            // Assign the values to localStorage
-            localStorage.setItem('rentAndUtilitiesGoal', inputValue1);
-            localStorage.setItem('foodGoal', inputValue2);
-            localStorage.setItem('transportationGoal', inputValue3);
-            localStorage.setItem('miscellaneousGoal', inputValue4);
+        function assignInputs() {
+            const categories = [
+                'rentAndUtilities',
+                'food',
+                'transportation',
+                'miscellaneous'
+            ];
 
-            // Confirmation message
+            categories.forEach((category, index) => {
+                const inputElement = document.getElementById('inputValue' + (index + 1));
+                const inputValue = inputElement.value;
+
+                // Only update localStorage if the input is not empty
+                if (inputValue) {
+                    localStorage.setItem(category + 'Goal', inputValue);
+                    document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$" + parseFloat(inputValue).toFixed(2);
+                    inputElement.value = ''; // Clear only the input box
+                }
+            });
+
             document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
-
-            document.getElementById('inputValue1').value = '';
-            document.getElementById('inputValue2').value = '';
-            document.getElementById('inputValue3').value = '';
-            document.getElementById('inputValue4').value = '';
-
-            // Update goal displays
-            updateGoalDisplays();
         }
 
         function updateExpenseGoalDisplay(category, goal) {
@@ -115,28 +114,25 @@
         function updateGoalDisplays() {
             const categories = ['rentAndUtilities', 'food', 'transportation', 'miscellaneous'];
             categories.forEach(category => {
-                const savedGoal = localStorage.getItem(category + 'Goal'); // Correctly retrieving the goal
+                const savedGoal = localStorage.getItem(category + 'Goal');
                 if (savedGoal) {
                     updateExpenseGoalDisplay(category, savedGoal);
-                    document.getElementById('inputValue' + (categories.indexOf(category) + 1)).value = savedGoal;
                 } else {
-                    document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$0.00"; // Default display
-                    document.getElementById('inputValue' + (categories.indexOf(category) + 1)).value = '';
+                    document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$0.00";
                 }
             });
         }
 
-        function assignSavings(event) {
-            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+        function assignSavings() {
             const inputValue5 = document.getElementById('inputValue5').value;
-            
-            // Assign the values to localStorage
-            localStorage.setItem('savingsGoal', inputValue5); // Store as string
 
-            // Confirmation message
-            updateSavingsGoalDisplay(inputValue5);
-            document.getElementById('savingConfirmationMessage').innerText = "Your savings goal has been updated!";
-            document.getElementById('savingConfirmationMessage').style.textAlign = "left";
+            if (inputValue5) {
+                localStorage.setItem('savingsGoal', inputValue5);
+                updateSavingsGoalDisplay(inputValue5);
+                const confirmationMessage = document.getElementById('savingConfirmationMessage');
+                confirmationMessage.innerText = "Your savings goal has been updated!";
+                confirmationMessage.style.textAlign = "left";
+            }
         }
 
         function updateSavingsGoalDisplay(savingsGoal) {
@@ -148,7 +144,7 @@
             if (savedGoal) {
                 updateSavingsGoalDisplay(savedGoal);
             } else {
-                document.getElementById('savingsGoalDisplay').innerHTML = "<strong>Savings goal: </strong>$0.00"; // Default display
+                document.getElementById('savingsGoalDisplay').innerHTML = "<strong>Savings goal: </strong>$0.00";
             }
         }
 
