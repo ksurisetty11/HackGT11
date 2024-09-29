@@ -161,13 +161,6 @@
 
     <script>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
-            updateDisplay();
-            goal = parseFloat(localStorage.getItem('savingsGoal'));
-            updateDuck(goal);
-        });
-        
         const spendingCategories = {
             miscellaneous: parseFloat(localStorage.getItem('miscellaneous')) || 0,
             rentAndUtilities: parseFloat(localStorage.getItem('rentAndUtilities')) || 0,
@@ -231,7 +224,7 @@
             const currentSavingsGoal = parseFloat(localStorage.getItem('savingsGoal')) || 0.00;
 
             // Prevent division by zero by setting a default savingsGoal if it's zero
-            if (currentSavingsGoal === 0) {
+            if (currentSavingsGoal == 0) {
                 duckAvatar.src = 'images/sadDuck.svg'; // Default to sad duck if no savings goal is set
                 return;
             }
@@ -250,7 +243,14 @@
             } else {
                 duckAvatar.src = 'images/sadDuck.svg';
             }
-            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
+            updateDisplay();
+            updateDuck();
+        });
+            
     </script>
 </body>
 </html>
