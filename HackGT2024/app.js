@@ -16,6 +16,8 @@ let savings = parseFloat(localStorage.getItem('savings')) || 0.00;
  document.addEventListener("DOMContentLoaded", function() {
      document.getElementById("value").innerText = `$${balance.toFixed(2)}`;
      updateDisplay();
+     goal = parseFloat(localStorage.getItem('savingsGoal'));
+     updateDuck(goal);
 });
 
  // Function to update the balance based on user input
@@ -79,29 +81,45 @@ function updateCategoryValue(category, value) {
         } else if (category == "savings") {
             savings += value;
             localStorage.setItem('savings', savings);
+
         }
         document.getElementById("updateValue").value = '';
         updateDisplay();
-        updateDuck();
+        goal = parseFloat(localStorage.getItem('savingsGoal'));
+        updateDuck(goal);
     } else {
         alert("Please enter a valid number");
     }
 }
 
-function updateDuck() {
+function updateDuck(goal) {
 
-    duckAvatar = document.getElementById("DuckAvatar");
+    const duckAvatar = document.getElementById("DuckAvatar");
+    
+    // Retrieve and parse the latest savings and savingsGoal from localStorage
+    const currentSavings = parseFloat(localStorage.getItem('savings')) || 0.00;
+    let currentSavingsGoal = goal;
+
+    // Prevent division by zero by setting a default savingsGoal if it's zero
+    if (currentSavingsGoal === 0) {
+        duckAvatar.src = 'images/sadDuck.svg'; // Default to sad duck if no savings goal is set
+        return;
+    }
+
+    // Calculate the savings ratio
+    const ratio = currentSavings / currentSavingsGoal;
     
 
-    if (savings / savingsGoal > .75) {
+    // Update the duck avatar based on the ratio
+    if (ratio > 0.75) {
         duckAvatar.src = 'images/veryHappyDuck.svg';
-    } else if (savings / savingsGoal > .5) {
+    } else if (ratio > 0.5) {
         duckAvatar.src = 'images/happyDuck.svg';
-    } else if (savings / savingsGoal > .3) {
+    } else if (ratio > 0.3) {
         duckAvatar.src = 'images/concernedDuck.svg';
     } else {
         duckAvatar.src = 'images/sadDuck.svg';
     }
-
 }
+
     
