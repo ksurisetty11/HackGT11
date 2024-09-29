@@ -140,8 +140,3 @@ a:hover {
     color: #97acdc; /* Retain original hover color */
     text-decoration: underline;
 }
-
-#goalDisplay {
-    font-weight: bold; /* Makes the text bold */
-}
-
