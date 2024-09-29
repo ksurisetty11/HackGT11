@@ -55,7 +55,7 @@
                         <span id="miscellaneousGoal" class="goal-display"></span>
                         <br>
                         <p> </p>
-                        <button onclick="assignInputs();">Submit</button>
+                        <button type="button" onclick="assignInputs(event);">Submit</button> <!-- Changed to type="button" -->
                         <br>
                     </form>
                     <p id="confirmationMessage"></p> <!-- To display the confirmation message -->
@@ -69,10 +69,10 @@
                 <form style="text-align: left;">
                     <h3>Savings Goals</h3>
                     <p>Let's set our savings goals! 
-                    <p>Entire your goal amount below: </p>
+                    <p>Enter your goal amount below: </p>
                     <label for="inputValue5">Savings: </label>
                     <input type="text" id="inputValue5" name="inputValue5">
-                    <button onclick="assignSavings();">Submit</button>
+                    <button type="button" onclick="assignSavings(event);">Submit</button> <!-- Changed to type="button" -->
                     <p id="savingsGoalDisplay" style="margin-top: 20px;"></p>
                     <br>
                 </form>
@@ -82,91 +82,80 @@
     </div>
 
     <script>
-        function assignInputs() {
+        function assignInputs(event) {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
             const inputValue1 = document.getElementById('inputValue1').value;
             const inputValue2 = document.getElementById('inputValue2').value;
             const inputValue3 = document.getElementById('inputValue3').value;
             const inputValue4 = document.getElementById('inputValue4').value;
-    
-            // Assign the values to the preexisting variables
-            rentAndUtilities = inputValue1;
-            food = inputValue2;
-            transportation = inputValue3;
-            miscellaneous = inputValue4;
-
-            // Update the goal displays
-            if (inputValue1) {
-                updateExpenseGoalDisplay('rentAndUtilities', inputValue1);
-            } else {
-                document.getElementById('rentAndUtilitiesGoal').innerHTML = ''; // Clear if no input
-            }
             
-            if (inputValue2) {
-                updateExpenseGoalDisplay('food', inputValue2);
-            } else {
-                document.getElementById('foodGoal').innerHTML = ''; // Clear if no input
-            }
-            
-            if (inputValue3) {
-                updateExpenseGoalDisplay('transportation', inputValue3);
-            } else {
-                document.getElementById('transportationGoal').innerHTML = ''; // Clear if no input
-            }
-            
-            if (inputValue4) {
-                updateExpenseGoalDisplay('miscellaneous', inputValue4);
-            } else {
-                document.getElementById('miscellaneousGoal').innerHTML = ''; // Clear if no input
-            }
+            // Assign the values to localStorage
+            localStorage.setItem('rentAndUtilitiesGoal', inputValue1);
+            localStorage.setItem('foodGoal', inputValue2);
+            localStorage.setItem('transportationGoal', inputValue3);
+            localStorage.setItem('miscellaneousGoal', inputValue4);
 
             // Confirmation message
             document.getElementById('confirmationMessage').innerText = "Your expense goals have been updated!";
-        }
 
+            document.getElementById('inputValue1').value = '';
+            document.getElementById('inputValue2').value = '';
+            document.getElementById('inputValue3').value = '';
+            document.getElementById('inputValue4').value = '';
+
+            // Update goal displays
+            updateGoalDisplays();
+        }
 
         function updateExpenseGoalDisplay(category, goal) {
             const formattedGoal = parseFloat(goal).toFixed(2);
             document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$" + formattedGoal;
         }
 
-        function loadExpenseGoals() {
-            const categories = ['rentAndUtilities', 'food', 'transporation', 'miscellaneous'];
+        function updateGoalDisplays() {
+            const categories = ['rentAndUtilities', 'food', 'transportation', 'miscellaneous'];
             categories.forEach(category => {
-                const savedGoal = localStorage.getItem(category + 'Goal');
+                const savedGoal = localStorage.getItem(category + 'Goal'); // Correctly retrieving the goal
                 if (savedGoal) {
                     updateExpenseGoalDisplay(category, savedGoal);
+                    document.getElementById('inputValue' + (categories.indexOf(category) + 1)).value = savedGoal;
+                } else {
+                    document.getElementById(category + 'Goal').innerHTML = "<strong>Goal: </strong>$0.00"; // Default display
+                    document.getElementById('inputValue' + (categories.indexOf(category) + 1)).value = '';
                 }
-            })
+            });
         }
 
-        function assignSavings() {
+        function assignSavings(event) {
             event.preventDefault(); // Prevent the form from submitting and refreshing the page
-            const inputValue5 = parseFloat(document.getElementById('inputValue5').value);
+            const inputValue5 = document.getElementById('inputValue5').value;
             
-            // Assign the values to the preexisting variables
-            savingsGoal = inputValue5;
-            localStorage.setItem('savingsGoal', savingsGoal);
+            // Assign the values to localStorage
+            localStorage.setItem('savingsGoal', inputValue5); // Store as string
 
             // Confirmation message
             updateSavingsGoalDisplay(inputValue5);
-            document.getElementById('savingConfirmationMessage').innerText = "Your savings goals have been updated!";
+            document.getElementById('savingConfirmationMessage').innerText = "Your savings goal has been updated!";
             document.getElementById('savingConfirmationMessage').style.textAlign = "left";
         }
 
         function updateSavingsGoalDisplay(savingsGoal) {
-            document.getElementById('savingsGoalDisplay').innerHTML = "<strong>Savings goal: </strong>$" + savingsGoal;
+            document.getElementById('savingsGoalDisplay').innerHTML = "<strong>Savings goal: </strong>$" + parseFloat(savingsGoal).toFixed(2);
         }
 
         function loadSavingsGoal() {
             const savedGoal = localStorage.getItem('savingsGoal');
             if (savedGoal) {
                 updateSavingsGoalDisplay(savedGoal);
+            } else {
+                document.getElementById('savingsGoalDisplay').innerHTML = "<strong>Savings goal: </strong>$0.00"; // Default display
             }
         }
 
-        loadExpenseGoals();
-        loadSavingsGoal();
+        window.onload = function () {
+            updateGoalDisplays(); // Load expense goals
+            loadSavingsGoal(); // Load savings goal
+        };
     </script>
 </body>
 </html>
