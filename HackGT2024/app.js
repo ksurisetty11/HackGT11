@@ -48,13 +48,13 @@ let savings = parseFloat(localStorage.getItem('savings')) || 0.00;
  });
 
         // Function to update the displayed values
-function updateDisplay() {
-        document.getElementById("rentAndUtilitiesDisplay").innerText = `$${rentAndUtilities.toFixed(2)}`;
-        document.getElementById("foodDisplay").innerText = `$${food.toFixed(2)}`;
-        document.getElementById("transportationDisplay").innerText = `$${transportation.toFixed(2)}`;
-        document.getElementById("miscellaneousDisplay").innerText = `$${miscellaneous.toFixed(2)}`;
-        document.getElementById("savingsDisplay").innerText = `$${savings.toFixed(2)}`;
-}
+// function updateDisplay() {
+//         document.getElementById("rentAndUtilitiesDisplay").innerText = `$${rentAndUtilities.toFixed(2)}`;
+//         document.getElementById("foodDisplay").innerText = `$${food.toFixed(2)}`;
+//         document.getElementById("transportationDisplay").innerText = `$${transportation.toFixed(2)}`;
+//         document.getElementById("miscellaneousDisplay").innerText = `$${miscellaneous.toFixed(2)}`;
+//         document.getElementById("savingsDisplay").innerText = `$${savings.toFixed(2)}`;
+// }
 
 document.getElementById("submitButton").addEventListener("click", function() {
     // Get the selected category and the value to update
@@ -81,11 +81,10 @@ function updateCategoryValue(category, value) {
         } else if (category == "savings") {
             savings += value;
             localStorage.setItem('savings', savings);
-
         }
         document.getElementById("updateValue").value = '';
         updateDisplay();
-        goal = parseFloat(localStorage.getItem('savingsGoal'));
+        const goal = parseFloat(localStorage.getItem('savingsGoal'));
         updateDuck(goal);
     } else {
         alert("Please enter a valid number");
@@ -108,7 +107,7 @@ function updateDuck(goal) {
 
     // Calculate the savings ratio
     const ratio = currentSavings / currentSavingsGoal;
-    
+
 
     // Update the duck avatar based on the ratio
     if (ratio > 0.75) {
@@ -121,5 +120,3 @@ function updateDuck(goal) {
         duckAvatar.src = 'images/sadDuck.svg';
     }
 }
-
-    
