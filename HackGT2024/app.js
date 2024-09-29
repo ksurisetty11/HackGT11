@@ -91,6 +91,7 @@ function updateCategoryValue(category, value) {
 function updateDuck() {
 
     duckAvatar = document.getElementById("DuckAvatar");
+    
 
     if (savings / savingsGoal > .75) {
         duckAvatar.src = 'images/veryHappyDuck.svg';
