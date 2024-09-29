@@ -76,9 +76,13 @@ function updateCategoryValue(category, value) {
         } else if (category == "miscellaneous") {
             miscellaneous += value;
             localStorage.setItem('miscellaneous', miscellaneous);
+        } else if (category == "savings") {
+            savings += value;
+            localStorage.setItem('savings', savings);
         }
         document.getElementById("updateValue").value = '';
         updateDisplay();
+        updateDuck();
     } else {
         alert("Please enter a valid number");
     }
@@ -86,7 +90,7 @@ function updateCategoryValue(category, value) {
 
 function updateDuck() {
 
-    const duckAvatar = document.getElementById("DuckAvatar");
+    duckAvatar = document.getElementById("DuckAvatar");
 
     if (savings / savingsGoal > .75) {
         duckAvatar.src = 'images/veryHappyDuck.svg';
